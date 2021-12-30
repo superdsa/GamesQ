@@ -1,0 +1,55 @@
+{
+  "name": "superdsa/gamesq",
+  "description": "GameQ Gameserver Library",
+  "keywords": [
+    "gamesq",
+    "serverstatus"
+  ],
+  "version": "v3.0.15",
+
+  "support": {
+    "source": "https://github.com/Austinb/GameQ/v3",
+    "issues": "https://github.com/Austinb/GameQ/issues",
+    "wiki": "https://github.com/Austinb/GameQ/wiki"
+  },
+  "require": {
+    "php": ">=5.6.40",
+    "ext-bz2": "*",
+    "ext-xml": "*"
+  },
+  "require-dev": {
+    "ext-curl": "*",
+    "phpunit/phpunit": "^4.8 || ^6.0 || ^7.0",
+    "phpunit/php-invoker": "*",
+    "phpmd/phpmd": "@stable",
+    "squizlabs/php_codesniffer": "3.*@stable",
+    "corneltek/getoptionkit": "~2",
+    "php-coveralls/php-coveralls": "^1.1 || ^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "GameQ\\": "src/GameQ/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "GameQ\\Tests\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": [
+      "@test-phpcs",
+      "@test-phpmd",
+      "@test-php"
+    ],
+    "test-php": "vendor/bin/phpunit",
+    "test-phpcs": "vendor/bin/phpcs src tests --extensions=php --ignore=bootstrap --report=checkstyle --report-file=build/logs/checkstyle.xml --standard=build/config/phpcs.xml -v",
+    "test-phpmd": "vendor/bin/phpmd src,tests xml build/config/phpmd.xml"
+  },
+  "scripts-descriptions": {
+    "test": "Run all tests!",
+    "test-php": "Run phpunit tests",
+    "test-phpcs": "Run PHP Code Style checks",
+    "test-phpmd": "Run PHP Mess Detector checks"
+  }
+}
